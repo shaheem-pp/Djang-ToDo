@@ -15,7 +15,7 @@ print(get_random_secret_key())
 ```
 4. You will get a random digits as output. `Copy` the output
 5. create file name `secret_settings.py inside project folder`
-6. `paste` the output, it is a secret key generated
+6. `paste` the output in `THE-OUPUT-HERE` and copy paste the below code inside `secret_settings.py`
 ```python
 SECRET_KEY = 'THE-OUTPUT-HERE'
 ```
