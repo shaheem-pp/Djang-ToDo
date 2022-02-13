@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="text-center display-4">To-Do List</h1>
+    <form method="post" action="/add_task/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="task">Enter your Task</label>
+            <input type="text" class="form-control" id="task" name="task" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">Submit</button>
+    </form>
+    <hr class="my-5">
+    <div>
+        <h1 class="text-center display-4">Current Tasks</h1>
+        {% for task in new_tasks %}
+            <div class="row  py-2 border-bottom border-dark">
+                <div class="col-9 align-middle">{{ task.title }}</div>
+                <div class="col-2 align-middle"><a href="/complete_task/{{ task.id }}">
+                    <button class="btn
+                btn-success btn-block">Completed
+                    </button>
+                </a></div>
+                <div class="col-1 align-middle"><a href="/remove_task/{{ task.id }}">
+                    <button class="btn
+                btn-danger btn-block">Remove
+                    </button>
+                </a></div>
+
+                <hr>
+            </div>
+        {% endfor %}
+
+        <h1 class="text-center display-4">Completed Tasks</h1>
+        {% for task in completed_tasks %}
+            <div class="row  py-2 border-bottom border-dark">
+                <div class="col-9 align-middle">{{ task.title }}</div>
+                <div class="col-3 align-middle"><a href="/remove_completed_task/{{ task.id }}">
+                    <button class="btn
+								btn-success btn-block">Remove
+                    </button>
+                </a></div>
+
+                <hr>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock content %}
