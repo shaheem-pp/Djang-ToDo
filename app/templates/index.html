@@ -11,19 +11,19 @@
     </form>
     <hr class="my-5">
     <div>
-        <h1 class="text-center display-4">Current Tasks</h1>
+        <h1 class="text-center display-4 text-dark bg-light">Current Tasks</h1>
 
 
         {% for task in new_tasks %}
             {% if task.status == "current" %}
                 <div class="row  py-2 border-bottom border-dark">
-                    <div class="col-9 align-middle">{{ task.title }}</div>
-                    <div class="col-2 align-middle">
+                    <div class="col-md-9 align-middle">{{ task.title }}</div>
+                    <div class="col-md-2 align-middle">
                         <a href="/complete_task/{{ task.id }}">
                             <button class="btn btn-success btn-block">Completed</button>
                         </a>
                     </div>
-                    <div class="col-1 align-middle">
+                    <div class="col-md-1 align-middle">
                         <a href="/remove_task/{{ task.id }}">
                             <button class="btn btn-danger btn-block">Remove</button>
                         </a>
@@ -34,12 +34,12 @@
         {% endfor %}
 
 
-        <h1 class="text-center display-4">Completed Tasks</h1>
+        <h1 class="text-center display-4 mt-5 text-dark bg-light">Completed Tasks</h1>
         {% for task in new_tasks %}
             {% if task.status == "completed" %}
                 <div class="row  py-2 border-bottom border-dark">
-                    <div class="col-9 align-middle">{{ task.title }}</div>
-                    <div class="col-3 align-middle">
+                    <div class="col-md-9 align-middle">{{ task.title }}</div>
+                    <div class="col-md-3 align-middle">
                         <a href="/remove_task/{{ task.id }}">
                             <button class="btn btn-danger btn-block">Remove</button>
                         </a>

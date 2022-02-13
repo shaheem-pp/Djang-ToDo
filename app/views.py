@@ -24,8 +24,7 @@ def add_task(request):
 
 def remove_task(request, id):
     data = tbl_new_task.objects.get(id=id)
-    data.status = "removed"
-    data.save()
+    data.delete()
     return redirect('/index')
 
 
