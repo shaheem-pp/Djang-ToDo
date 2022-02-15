@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build Image
-        run: docker build . --tag djang-todo:latest
+        run: docker build . --tag ghcr.io/${{ github.actor }}/djang-todo:latest
       - name: Login to registry
         run: |
           export CR_PAT=${{ secrets.GHCR }}
