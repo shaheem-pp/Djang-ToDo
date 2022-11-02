@@ -1,2 +1,4 @@
 project/secret_settings.py
 db.sqlite3
+.env
+project/.env
